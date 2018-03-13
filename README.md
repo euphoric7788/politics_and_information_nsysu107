@@ -1,0 +1,2 @@
+# politics_and_information_nsysu107
+code for politics_and_information
