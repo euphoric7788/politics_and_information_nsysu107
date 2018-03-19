@@ -1,6 +1,7 @@
 # NSYSU107 Politics and Information
-大家好我是本學期政治與資訊的助教～<br />
-如果有任何問題歡迎發問！
+大家好我是本學期<br />
+政治與資訊（Politics and Information）的小助教 炳宏～<br />
+如果有任何問題歡迎發問！<br />
 
 Week1（20180312）
 -------------
