@@ -1,5 +1,5 @@
 ### hw_1_question
-
+# note: 註解（Hotkey）-> command + shift + c
 
 ########################################################### Task 1
 
@@ -7,55 +7,65 @@
 iris
 
 # 使用dim(), 回傳iris的列數與欄數
-
+dim(iris)
+# note: 額外測試 
+# iris[0]
 
 # 使用head() 回傳iris的前六列
-
-
+head(iris)
 # 使用tail() 回傳iris的後六列
-
+tail(iris)
 
 # 使用str() 
-
+str(iris)
 
 # 使用summary() 查看iris敘述性統計、類別型資料概述。
+summary(iris)
 
+# note: 列出資料內每個欄位的狀態
+# note: 給出每個欄位的「最大值」、「最小值」、「平均值」、「中位數」「第一四分位數」
 
 ########################################################### Task 2
 
 # 使用for loop 印出九九乘法表
 # Ex: (1x1=1 1x2=2...1x9=9 ~ 9x1=9 9x2=18... 9x9=81)
-
-
+for(a in c(1:9)){
+  for(b in c(1:9)){
+    print(paste(a,"*",b,"=",a*b))
+  }
+}
+# note: 將個別的單一字串粘貼起來
 
 ########################################################### Task 3
 
 # 使用sample(), 產出10個介於10~100的整數，並存在變數 nums
-
-
+nums <- sample(x=10:100, size=10)
 # 查看nums
-
+nums
 
 # 1.使用for loop 以及 if-else，印出大於50的偶數，並提示("偶數且大於50": 數字value)
 # 2.特別規則：若數字為66，則提示("太66666666666了")並中止迴圈。
-
-  
-  
-  
-  
-
-
+for (num in nums) {
+  if (num == 66) {
+    print("太66666666666了")
+    break
+  } else if ((num %% 2 == 0) && (num > 50)) {
+    print(paste("偶數且大於50：", num))
+  }
+}
 
 ########################################################### Task 4
 
 # 請寫一段程式碼，能判斷輸入之西元年分 year 是否為閏年
 
+year <- 2100
+ifelse(year %% 4 == 0 && year %% 100 != 0 || year %% 400 == 0, "是閏年", "不是閏年")
 
-
-
-
-
-
+# note:
+# 西元年份除以4不可整除，為平年。
+# 西元年份除以4可整除，且除以100不可整除，為閏年。
+# 西元年份除以100可整除，且除以400不可整除，為平年
+# 西元年份除以400可整除，為閏年。
 
 ########################################################### Task 5
 
@@ -64,10 +74,33 @@ iris
 # 2. 玩家可重覆猜電腦所產生的數字，並提示猜測的結果(EX:1A2B)
 # 3. 一旦猜對，系統可自動計算玩家猜測的次數
 
+ans <- sample(0:9, 4)
+guess.count <- 0
 
-
-
-
-
-
-
+repeat {
+  print("Please input 4 non-repetitive numbers.[integers between 0 to 9, aka c(0:9)")
+  guess <- scan(nmax = 4)
+  
+  a <- b <- 0
+  if (!any(duplicated(guess))){
+    guess.count <- guess.count + 1
+    for (i in 1:4) {
+      if (guess[i] == ans[i]) {
+        a <- a + 1
+      } else {
+        for (j in 1:4) {
+          if (guess[i] == ans[j]) {
+            b <- b + 1
+          }
+        }
+      }
+    }
+    cat("==== Your guess :", guess, ", Match : ", a, "A", b, "B\n")
+    if (a == 4) {
+      cat("==== CORRECT! You guess for", guess.count, "times")
+      break
+    }
+  } else {
+    cat("==== Input Error: Please input 4 <non-repetitive> numbers.\n")
+  }
+}
