@@ -10,7 +10,7 @@ Week1（20180312）
 
 ### 課程進度
 * GitHub 及 R Studio環境設置
-* 課程簡介（穩定軍心）
+* 課程簡介
 * R Basic 資源
 
 ### 課後複習
@@ -24,11 +24,12 @@ Week2（20180319）
 * week2_task（Kiva.org），使用官方的 api 抓下來的 json 檔案
 
 ### 課程進度
-* R Crawler
+* Markdown 簡介
+* Crawler 練習
 
 ### 課後複習
 * 補完 task2 進階爬蟲（stock.r, stock.rmd, stock.html）
-** 包含股票基本面（部分）及相關新聞
+* 包含股票基本面（部分）及相關新聞
 
 Week3（20180326）
 -------------
