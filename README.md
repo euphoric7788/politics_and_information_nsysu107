@@ -6,21 +6,35 @@
 Week1（20180312）
 -------------
 ### 課前預習
-* 準備環境、理解課程大綱
+* 準備環境、課程大綱
 
 ### 課程進度
-* GitHub 及 R Studio環境設置、課程簡介（穩定軍心）、R Basic 相關資源、未來規劃
+* GitHub 及 R Studio環境設置
+* 課程簡介（穩定軍心）
+* R Basic 資源
 
 ### 課後複習
-* 完成 week1 作業及任務（包括更新個人部分筆記），並成功上傳
+* 完成 week1 作業（Practice & Homework）
+* 任務（包括更新個人部分筆記），並成功上傳
 
 Week2（20180319）
 -------------
 ### 課前預習
-* 完成 Course Practice 以及 week2_task（Kiva.org），並成功上傳
+* 完成3個 Course Practice
+* week2_task（Kiva.org），使用官方的 api 抓下來的 json 檔案
 
 ### 課程進度
 * R Crawler
+
+### 課後複習
+* 補完 task2 進階爬蟲（stock.r, stock.rmd, stock.html）
+
+Week3（20180326）
+-------------
+### 課前預習
+* 預習 ggplot，並嘗試使用內建的 mtcars、pressure、BOD 等資料去嘗試
+
+### 課程進度
 
 
 <br /><br />
