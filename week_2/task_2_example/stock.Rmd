@@ -1,0 +1,70 @@
+---
+title: "Stock Project"
+author: "KevinLin"
+date: "2018/3/26"
+output: html_document
+---
+## Stock Project1 - 公司獲利資訊
+大家好，這是測試部分股票資訊的爬蟲（Crawler），想要進一步的程式碼請聯絡作者本人。
+
+希望在大家努力下，可以一起相互學習 R 與 Python3。
+
+此專案主要針對單一股票，如：「麗豐－KY（4137）」測試：
+```{r stock}
+library(rvest) # 開啟rvest套件
+
+# 爬取網頁資訊
+r_text = read_html("http://kgieworld.moneydj.com/ZXQW/zc/zce/zce_4137.djhtm")
+r_text = html_nodes(r_text, "table #oMainTable") %>% html_table()
+
+# 處理資訊格式
+r_text = r_text[[1]]
+r_text <- r_text[-c(1, 2), ]
+colnames(r_text) = r_text[1, ]
+r_text = r_text[-1, ] 
+rownames(r_text) = r_text[ ,1]
+r_text = r_text[ ,-1]
+```
+
+## Stock Project1 - Output
+以下是「麗豐－KY（4137）」的公司獲利結果：
+```{r echo=FALSE}
+library(knitr)
+kable(r_text)
+```
+
+* Note: 將「4137」股票代碼代換即可獲取其他股票資訊！
+
+
+
+## Stock Project2 - 公司新聞資訊
+```{r news}
+# 爬取網頁資訊
+r_news = read_html("http://kgieworld.moneydj.com/ZXQW/zc/zcv/zcv_4137_E_1.djhtm")
+r_news = html_nodes(r_news, ".t3n0_top .t01") %>% html_table()
+
+# 處理資訊格式
+r_news = r_news[[1]]
+r_news <- r_news[-c(1,23), ]
+colnames(r_news) = r_news[1, ]
+r_news = r_news[-1, ] 
+
+# 獲取網頁超連結
+r_url = read_html("http://kgieworld.moneydj.com/ZXQW/zc/zcv/zcv_4137_E_1.djhtm")
+r_url = html_nodes(r_url, ".t3n0_top .t01 a")
+r_url = html_attr(r_url,"href")
+url_vector = c()
+for(i in r_url[1:20])
+  url_vector = c(url_vector,paste("http://kgieworld.moneydj.com", i,sep=""))
+r_news$url = url_vector # 將超連結欄位加入 data frame
+rownames(r_news) <- NULL # Reset Row Names
+```
+
+## Stock Project2 - Output
+以下是「麗豐－KY（4137）」的公司部分個股新聞：
+```{r echo=FALSE}
+library(knitr)
+kable(r_news)
+```
+
+* Note: 將「4137」股票代碼代換即可獲取其他股票資訊！
