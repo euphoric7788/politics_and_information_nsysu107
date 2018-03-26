@@ -1,0 +1,48 @@
+---
+title: "task3"
+author: "KevinLin"
+date: "2018/3/26"
+output: html_document
+---
+## R visualization
+```{r visualization}
+library(ggplot2)
+# plot 用法
+plot(mtcars$wt, mtcars$mpg)
+
+# mtcars 資料集（x->wt, y->mpg）
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point()
+# pressure 資料集（x->temperature, y->pressure）
+ggplot(pressure, aes(x=temperature, y=pressure)) + geom_line() + geom_point()
+# BOD 資料集（x->time, y->demand）
+ggplot(BOD, aes(x=factor(Time), y=demand)) + geom_bar(stat="identity")
+
+# g <- ggplot(mtcars, aes(x=factor(cyl)))  # 先存起來
+# g + geom_bar(stat="count")  # 可以一步一步接
+# g + geom_bar(stat="count") + theme_bw(16)
+
+# 調整外觀
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point(color="blue", size=5, alpha=0.5)
+ggplot(mtcars, aes(x=wt, y=mpg, color=gear)) + geom_point()
+```
+
+## 下載資料
+
+```{r download}
+# library(dplyr)
+library(downloader)
+url <- "https://raw.githubusercontent.com/genomicsclass/dagdata/master/inst/extdata/msleep_ggplot2.csv"
+filename <- "msleep_ggplot2.csv"
+if (!file.exists(filename)) download(url,filename)
+msleep <- read.csv("msleep_ggplot2.csv")
+```
+
+## 前六筆資料
+
+```{r echo=FALSE}
+library(knitr)
+kable(head(msleep))
+# kable(msleep)
+```
+
+## 分析部分
