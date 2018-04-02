@@ -37,7 +37,7 @@ Week3（20180326）
 * 預習 ggplot，並嘗試使用內建的 mtcars、pressure、BOD 等資料去嘗試
 
 ### 課程進度
-* 完成部分 week3 task 內容，相關 Crawler 解惑
+* 完成部分 week3 task（task3.Rmd＆task3.html）內容，相關 Crawler 解惑
 
 ### 課後複習
 * 盡量完成七個項目
